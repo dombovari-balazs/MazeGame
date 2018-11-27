@@ -1,4 +1,6 @@
 # bocsi, de nem futtathato, csak ASCII karakterekkel
+#import keyboard
+
 level_test = [
     "XXXXXXXXXX",
     "XP    I  X",
@@ -12,25 +14,20 @@ level_test = [
     "XXXXXXXXFX",
 ]
 
-def handling_input():
-    movement_input = input()
-    if movement_input == w:
+
+def movement():
+    while True:
         move_up()
-        pass
-    if movement_input == a:
-        move_left()
-        pass
-    if movement_input == s:
         move_down()
-        pass
-    if movement_input == d:
-        move_right()
-        pass
-    
-def print_map():
-    for line in level_test:
-        print(line) 
-    
+        move_left
+        move_right
+
+
+def print_map(mapMatrix):
+    for line in mapMatrix:
+        print(line)
+
+
 def load_mapFile():
     pass
 
@@ -50,17 +47,35 @@ def buildGameMap(mapKacsa):
         print(line)
     
     return mapKacsa
-
+'''
 def move_up():
-    check_movement
-    pass
-def move_down():
-    pass
-def move_left():
-    pass
-def move_right():
-    pass
+    if keyboard.is_pressed('w'):
+        for 'P' in level_test:
+            X = X
+            Y = Y + 1
 
+
+def move_down():
+    if keyboard.is_pressed('s'):
+        for 'P' in level_test:
+            X = X
+            Y = Y - 1
+
+
+def move_left():
+    if keyboard.is_pressed('a'):
+        for 'P' in level_test:
+            X = X - 1
+            Y = Y
+
+
+def move_right():
+    if keyboard.is_pressed('d'):
+        for 'P' in level_test:
+            X = X + 1
+            Y = Y
+
+'''
 def start_timeCounting():
     pass
 
@@ -86,8 +101,14 @@ def movement_toWall():
 def movement_toFlag():
     pass
 def movement_toEmpty():
-    pass        
+    pass
 
-print_map()
+
+
 mapCica = buildEmptyMap()
 mapCica = buildGameMap(mapCica)
+
+print("Ez most a tesztunk: ")
+print_map(mapCica)
+print("Ennek X-nek kellene lennie: ",mapCica[2][1])
+# A rajz alapjan, ugy kell megadni, hogy mapMatrix[y][x]
