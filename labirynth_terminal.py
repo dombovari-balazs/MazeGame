@@ -34,6 +34,23 @@ def print_map():
 def load_mapFile():
     pass
 
+def buildEmptyMap():
+    rows = 10
+    columns = 10
+    mapMatrix= [[x for x in range(columns)] for x in range(rows)]
+    print(mapMatrix)
+    return mapMatrix
+
+def buildGameMap(mapKacsa):
+    print("We are inside of the buildGameMap()")
+    for line in range(10):
+        mapKacsa[line] = list(level_test[line])
+    
+    for line in mapKacsa:
+        print(line)
+    
+    return mapKacsa
+
 def move_up():
     check_movement
     pass
@@ -72,3 +89,5 @@ def movement_toEmpty():
     pass        
 
 print_map()
+mapCica = buildEmptyMap()
+mapCica = buildGameMap(mapCica)
