@@ -1,0 +1,42 @@
+easy level: 10x10-es a pálya széle
+Legyen 'X' a pálya széle
+'o' legyen a karakter
+Legyenek zászlók, amiket fel kell szedni 
+    --> több megoldása is van, több útvonal
+Zászlókat 'i'-vel jelöljük
+Egy célállomás van
+Ha keresztezed a régi útvonalad, akkor meghalsz --> trójai a gépedre csíra 
+    --> Gergő szerint túlzás, kíváncsi vagyok meddig bírja....
+Mozgás "wasd" --> értelemszerű
+pályák easy, medium, hard
+Végső feature --> menürendszer --> ki tudod választani melyikkel
+Mentés, betöltés
+
+
+
+"Már csak neki kell állni..."
+                    Gergő Coelho 2018
+
+Kösz, de ennyire ne alázz meg...
+
+'
+xxxxxxxxxxxxxx
+x            X
+xxxxxxxxxxxxxx 
+'
+
+Otthoni király lehetőségek:
+    Olvasni fájlból
+    
+
+Hétfőn mivel haladtunk:
+    Eldöntottük, hogy újraírjuk
+    Létrhoztuk a tesztpályát
+    elkészült egy alap skeletonkód
+    Beüzemeltük a LiveShare-t <3 #troll #chat
+
+
+Keddi feladatok:
+    position[X][Y] --> működjön
+    Input handling
+    falon ne menjen át
