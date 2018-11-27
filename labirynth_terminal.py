@@ -1,4 +1,6 @@
 # bocsi, de nem futtathato, csak ASCII karakterekkel
+import keyboard
+
 level_test = [
     "XXXXXXXXXX",
     "XP    I  X",
@@ -12,37 +14,51 @@ level_test = [
     "XXXXXXXXFX",
 ]
 
-def handling_input():
-    movement_input = input()
-    if movement_input == w:
+
+def movement():
+    while True:
         move_up()
-        pass
-    if movement_input == a:
-        move_left()
-        pass
-    if movement_input == s:
         move_down()
-        pass
-    if movement_input == d:
-        move_right()
-        pass
-    
+        move_left
+        move_right
+
+
 def print_map():
     for line in level_test:
-        print(line) 
-    
+        print(line)
+
+
 def load_mapFile():
     pass
 
+
 def move_up():
-    check_movement
-    pass
+    if keyboard.is_pressed('w'):
+        for 'P' in level_test:
+            X = X
+            Y = Y + 1
+
+
 def move_down():
-    pass
+    if keyboard.is_pressed('s'):
+        for 'P' in level_test:
+            X = X
+            Y = Y - 1
+
+
 def move_left():
-    pass
+    if keyboard.is_pressed('a'):
+        for 'P' in level_test:
+            X = X - 1
+            Y = Y
+
+
 def move_right():
-    pass
+    if keyboard.is_pressed('d'):
+        for 'P' in level_test:
+            X = X + 1
+            Y = Y
+
 
 def start_timeCounting():
     pass
@@ -69,6 +85,7 @@ def movement_toWall():
 def movement_toFlag():
     pass
 def movement_toEmpty():
-    pass        
+    pass
+
 
 print_map()
