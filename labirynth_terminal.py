@@ -48,6 +48,8 @@ def buildGameMap(mapKacsa):
     
     return mapKacsa
 '''
+
+
 def move_up():
     if keyboard.is_pressed('w'):
         for 'P' in level_test:
@@ -112,3 +114,4 @@ print("Ez most a tesztunk: ")
 print_map(mapCica)
 print("Ennek X-nek kellene lennie: ",mapCica[2][1])
 # A rajz alapjan, ugy kell megadni, hogy mapMatrix[y][x]
+
