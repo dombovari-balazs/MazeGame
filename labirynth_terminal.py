@@ -1,5 +1,7 @@
 # bocsi, de nem futtathato, csak ASCII karakterekkel
-#import keyboard
+import os
+import keyboard
+import time
 
 level_test = [
     "XXXXXXXXXX",
@@ -15,14 +17,6 @@ level_test = [
 ]
 
 
-def movement():
-    while True:
-        move_up()
-        move_down()
-        move_left
-        move_right
-
-
 def print_map(mapMatrix):
     for line in mapMatrix:
         print(line)
@@ -31,51 +25,59 @@ def print_map(mapMatrix):
 def load_mapFile():
     pass
 
+
 def buildEmptyMap():
     rows = 10
     columns = 10
-    mapMatrix= [[x for x in range(columns)] for x in range(rows)]
+    mapMatrix = [[x for x in range(columns)] for x in range(rows)]
     print(mapMatrix)
     return mapMatrix
+
 
 def buildGameMap(mapKacsa):
     print("We are inside of the buildGameMap()")
     for line in range(10):
         mapKacsa[line] = list(level_test[line])
-    
+
     for line in mapKacsa:
         print(line)
-    
+
     return mapKacsa
-'''
-def move_up():
-    if keyboard.is_pressed('w'):
-        for 'P' in level_test:
-            X = X
-            Y = Y + 1
 
 
-def move_down():
-    if keyboard.is_pressed('s'):
-        for 'P' in level_test:
-            X = X
-            Y = Y - 1
+def movement(map, i, j):
+        tema = True
+        while tema is True:
+                time.sleep(0.08)
+                if keyboard.is_pressed('w'):
+                        os.system('clear')
+                        map[i][j] = '-'
+                        map[i-1][j] = 'P'
+                        i -= 1
+                        print_map(mapCica)
+                if keyboard.is_pressed('s'):
+                        os.system('clear')
+                        map[i][j] = '-'
+                        map[i+1][j] = 'P'
+                        i += 1
+                        print_map(mapCica)
+                if keyboard.is_pressed('a'):
+                        os.system('clear')
+                        map[i][j] = '-'
+                        map[i][j-1] = 'P'
+                        j -= 1
+                        print_map(mapCica)
+                if keyboard.is_pressed('d'):
+                        os.system('clear')
+                        map[i][j] = '-'
+                        map[i][j+1] = 'P'
+                        j += 1
+                        print_map(mapCica)
+                if keyboard.is_pressed('p'):
+                        tema = False
 
 
-def move_left():
-    if keyboard.is_pressed('a'):
-        for 'P' in level_test:
-            X = X - 1
-            Y = Y
 
-
-def move_right():
-    if keyboard.is_pressed('d'):
-        for 'P' in level_test:
-            X = X + 1
-            Y = Y
-
-'''
 def start_timeCounting():
     pass
 
@@ -104,11 +106,20 @@ def movement_toEmpty():
     pass
 
 
+def main():
+        game_end = False
+        while game_end is False:
+                playing = True
+                while playing is True:
+                        in_maze = True
+                        while in_maze is True:
+                                movement(mapCica, 1, 1)
+
 
 mapCica = buildEmptyMap()
 mapCica = buildGameMap(mapCica)
 
 print("Ez most a tesztunk: ")
 print_map(mapCica)
-print("Ennek X-nek kellene lennie: ",mapCica[2][1])
+print("Ennek X-nek kellene lennie: ", mapCica[2][1])
 # A rajz alapjan, ugy kell megadni, hogy mapMatrix[y][x]
