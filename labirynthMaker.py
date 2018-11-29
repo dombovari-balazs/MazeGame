@@ -17,7 +17,7 @@ def print_map2(mapMatrix, rows):
     for y in range(rows):
         for x in range(len(mapMatrix[y])):
             print(mapMatrix[y][x], end='')
-        #print()
+    print()
 
 
 
@@ -112,8 +112,6 @@ def openTest():
         #print_map2(mapKacsa, rows)
         
 
-######################################################################
-
 
 def open1():
     with open('mazeFileLvl_1.txt', 'r' ) as mazeFileLvl_1:
@@ -130,24 +128,53 @@ def open1():
 ######################################################################
 
 
-def open2():
-    with open('mazeFileLvl_2.txt', 'r' ) as mazeFileLvl_2:
-        mapKacsa = buildEmptyMap()
+def open_hexa():
+    with open('mazeFileLvl_hexa.txt', 'r' ) as mazeFileLvl_hexa:
+        columns = 59
+        rows = 30
+        mapKacsa = buildEmptyMap(columns,rows)
         i = 0
-        for line in mazeFileLvl_2:
+        for line in mazeFileLvl_hexa:
             mapKacsa[i] = list(line)
             #print(list(line))
             i += 1
+        print_map2(mapKacsa, rows)
 
-def open3():
-    with open('mazeFileLvl_3.txt', 'r' ) as mazeFileLvl_3:
-        mapKacsa = buildEmptyMap()
+
+######################################################################
+
+
+def open_bunny():
+    with open('mazeFileLvl_Bunny.txt', 'r' ) as mazeFileLvl_Bunny:
+        columns = 67
+        rows = 39
+        mapKacsa = buildEmptyMap(columns,rows)
         i = 0
-        for line in mazeFileLvl_3:
+        for line in mazeFileLvl_Bunny:
             mapKacsa[i] = list(line)
             #print(list(line))
             i += 1
+        print_map2(mapKacsa, rows)
+
+
+
+def open_screenFinal():
+    with open('screenFinal', 'r' ) as fileScreenFinal:
+        columns = 67
+        rows = 34
+        mapKacsa = buildEmptyMap(columns,rows)
+        i = 0
+        for line in fileScreenFinal:
+            mapKacsa[i] = list(line)
+            #print(list(line))
+            i += 1
+        print_map2(mapKacsa, rows)
+
+
 
 #openTroll()
 #openTest()
-open1()
+#open1()
+#open_hexa()
+#open_bunny()
+open_screenFinal()
