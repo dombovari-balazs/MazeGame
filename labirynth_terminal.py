@@ -2,6 +2,7 @@
 import os
 import keyboard
 import time
+import labirynthMaker
 
 level_test = [
     "XXXXXXXXXX",
@@ -46,35 +47,127 @@ def buildGameMap(mapKacsa):
 
 
 def movement(map, i, j):
-        tema = True
-        while tema is True:
-                time.sleep(0.08)
-                if keyboard.is_pressed('w'):
-                        os.system('clear')
-                        map[i][j] = '-'
-                        map[i-1][j] = 'P'
-                        i -= 1
-                        print_map(mapCica)
-                if keyboard.is_pressed('s'):
-                        os.system('clear')
-                        map[i][j] = '-'
-                        map[i+1][j] = 'P'
-                        i += 1
-                        print_map(mapCica)
-                if keyboard.is_pressed('a'):
-                        os.system('clear')
-                        map[i][j] = '-'
-                        map[i][j-1] = 'P'
-                        j -= 1
-                        print_map(mapCica)
-                if keyboard.is_pressed('d'):
-                        os.system('clear')
-                        map[i][j] = '-'
-                        map[i][j+1] = 'P'
-                        j += 1
-                        print_map(mapCica)
-                if keyboard.is_pressed('p'):
-                        tema = False
+    tema = True
+    while tema is True:
+        time.sleep(0.08)
+        if keyboard.is_pressed('w'):
+            if map[i-1][j] == ' ':
+                os.system('clear')
+                if map[i][j] == 'Þ':
+                    map[i][j] = 'O'
+                else:
+                    map[i][j] = '|'
+                map[i-1][j] = 'P'
+                i -= 1
+                print_map(map)
+            elif map[i-1][j] == 'I':
+                os.system('clear')
+                map[i][j] = '|'
+                map[i-1][j] = 'Þ'
+                i -= 1
+                print_map(map)
+            elif map[i-1][j] == 'F':
+                os.system('clear')
+                print_map(finish)
+            elif map[i-1][j] == '-' or '|':
+                os.system('clear')
+                map = buildEmptyMap()
+                map = buildGameMap(map)
+                print_map(map)
+                i = 1
+                j = 1
+                continue
+            else:
+                continue
+        if keyboard.is_pressed('s'):
+            if map[i+1][j] == ' ':
+                os.system('clear')
+                if map[i][j] == 'Þ':
+                    map[i][j] = 'O'
+                else:
+                    map[i][j] = '|'
+                map[i+1][j] = 'P'
+                i += 1
+                print_map(map)
+            elif map[i+1][j] == 'I':
+                os.system('clear')
+                map[i][j] = '|'
+                map[i+1][j] = 'Þ'
+                i += 1
+                print_map(map)
+            elif map[i+1][j] == 'F':
+                os.system('clear')
+                print_map(finish)
+            elif map[i+1][j] == '-' or '|':
+                os.system('clear')
+                map = buildEmptyMap()
+                map = buildGameMap(map)
+                print_map(map)
+                i = 1
+                j = 1
+                continue
+            else:
+                continue
+        if keyboard.is_pressed('a'):
+            if map[i][j-1] == ' ':
+                os.system('clear')
+                if map[i][j] == 'Þ':
+                    map[i][j] = 'O'
+                else:
+                    map[i][j] = '-'
+                map[i][j-1] = 'P'
+                j -= 1
+                print_map(map)
+            elif map[i][j-1] == 'I':
+                os.system('clear')
+                map[i][j] = '-'
+                map[i][j-1] = 'Þ'
+                j -= 1
+                print_map(map)
+            elif map[i][j-1] == 'F':
+                os.system('clear')
+                print_map(finish)
+            elif map[i][j-1] == '-' or '|':
+                os.system('clear')
+                map = buildEmptyMap()
+                map = buildGameMap(map)
+                print_map(map)
+                i = 1
+                j = 1
+                continue
+            else:
+                continue
+        if keyboard.is_pressed('d'):
+            if map[i][j+1] == ' ':
+                os.system('clear')
+                if map[i][j] == 'Þ':
+                    map[i][j] = 'O'
+                else:
+                    map[i][j] = '-'
+                map[i][j+1] = 'P'
+                j += 1
+                print_map(map)
+            elif map[i][j+1] == 'I':
+                os.system('clear')
+                map[i][j] = '-'
+                map[i][j+1] = 'Þ'
+                j += 1
+                print_map(map)
+            elif map[i][j+1] == 'F':
+                os.system('clear')
+                print_map(finish)
+            elif map[i][j+1] == '-' or '|':
+                os.system('clear')
+                map = buildEmptyMap()
+                map = buildGameMap(map)
+                print_map(map)
+                i = 1
+                j = 1
+                continue
+            else:
+                continue
+        if keyboard.is_pressed('p'):
+                tema = False
 
 
 
