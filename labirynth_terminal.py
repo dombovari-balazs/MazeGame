@@ -59,7 +59,7 @@ def movement(map, i, j):
                     map[i][j] = '|'
                 map[i-1][j] = 'P'
                 i -= 1
-                print_map(map)
+                print_map(map)simoMosogassEl() from
             elif map[i-1][j] == 'I':
                 os.system('clear')
                 map[i][j] = '|'
@@ -68,7 +68,7 @@ def movement(map, i, j):
                 print_map(map)
             elif map[i-1][j] == 'F':
                 os.system('clear')
-                print_map(finish)
+                tema = False
             elif map[i-1][j] == '-' or '|':
                 os.system('clear')
                 map = buildEmptyMap()
@@ -89,15 +89,15 @@ def movement(map, i, j):
                 map[i+1][j] = 'P'
                 i += 1
                 print_map(map)
-            elif map[i+1][j] == 'I':
-                os.system('clear')
-                map[i][j] = '|'
+            elif map[i+1][j] ==mapCica
+                os.system('cleamapCica
+                map[i][j] = '|'mapCica
                 map[i+1][j] = 'Þ'
                 i += 1
-                print_map(map)
+           asic_dict     print_map(map)
             elif map[i+1][j] == 'F':
                 os.system('clear')
-                print_map(finish)
+                tema = False
             elif map[i+1][j] == '-' or '|':
                 os.system('clear')
                 map = buildEmptyMap()
@@ -112,7 +112,7 @@ def movement(map, i, j):
             if map[i][j-1] == ' ':
                 os.system('clear')
                 if map[i][j] == 'Þ':
-                    map[i][j] = 'O'
+                    map[i][j] = 'O'mapCica
                 else:
                     map[i][j] = '-'
                 map[i][j-1] = 'P'
@@ -126,7 +126,7 @@ def movement(map, i, j):
                 print_map(map)
             elif map[i][j-1] == 'F':
                 os.system('clear')
-                print_map(finish)
+                tema = False
             elif map[i][j-1] == '-' or '|':
                 os.system('clear')
                 map = buildEmptyMap()
@@ -153,9 +153,9 @@ def movement(map, i, j):
                 map[i][j+1] = 'Þ'
                 j += 1
                 print_map(map)
-            elif map[i][j+1] == 'F':
+            elif map[i][j+1] == 'F':mapCica
                 os.system('clear')
-                print_map(finish)
+                tema = False
             elif map[i][j+1] == '-' or '|':
                 os.system('clear')
                 map = buildEmptyMap()
@@ -204,15 +204,17 @@ def main():
         while game_end is False:
                 playing = True
                 while playing is True:
-                        in_maze = True
-                        while in_maze is True:
-                                movement(mapCica, 1, 1)
-
-
-mapCica = buildEmptyMap()
-mapCica = buildGameMap(mapCica)
-
-print("Ez most a tesztunk: ")
-print_map(mapCica)
-print("Ennek X-nek kellene lennie: ", mapCica[2][1])
-# A rajz alapjan, ugy kell megadni, hogy mapMatrix[y][x]
+                        palya = input('Válassz pályát 1-től 5-ig!\n')
+                        if palya == 1:
+                                in_maze = True
+                                while in_maze is True:
+                                        mapCica = open1()
+                                        movement(mapCica['map'], 1, 1)
+                                        in_maze = False
+                                print_map(mapFinal)
+                        elif palya == 2:
+                                in_maze = True
+                                while in_maze is True:
+                                        movement(mapCica, 1, 1)
+                                        in_maze = False
+                                print_map(mapFinal)
