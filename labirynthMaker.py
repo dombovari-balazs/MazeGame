@@ -29,15 +29,8 @@ def format_map_excel(mapMatrix, rows):
     for y in range(rows):
         for x in range(len(mapMatrix[y])):
             if mapMatrix[y][x] == '\t':
-                #print("I want to del: ", mapMatrix[y][x])
-                #del(mapMatrix[y][x])
-                #print("x = ", x) # ez nem biztos, hogy jo. Lehet nem mukszik. Del() mukodesetol fugg
-                mapMatrix[y][x] = ''
+               mapMatrix[y][x] = ''
             elif mapMatrix[y][x] == '\n':
-                #print("I want to del: ", mapMatrix[y][x])
-                #del(mapMatrix[y][x])
-                #print("x = ", x)
-                #mapMatrix[y][x] = ' '
                 pass
             
             else:
@@ -51,17 +44,10 @@ def format_map_every2nd(mapMatrix, rows):
     print("You've opened: format_map_every2nd(mapMatrix, rows)")
     for y in range(rows):
         for x in range(len(mapMatrix[y])):
-            #if mapMatrix[y][x] == '\t':
             if x%2 == 0:
-                #print("I want to del: ", mapMatrix[y][x])
-                #del(mapMatrix[y][x])
-                #print("x = ", x) # ez nem biztos, hogy jo. Lehet nem mukszik. Del() mukodesetol fugg
                 if mapMatrix[y][x] == '\t':
                     mapMatrix[y][x] = ''
             elif mapMatrix[y][x] == '\n':
-                #print("I want to del: ", mapMatrix[y][x])
-                #del(mapMatrix[y][x])
-                #print("x = ", x)
                 mapMatrix[y][x] = ' '
             
             else:
@@ -74,9 +60,7 @@ def format_map_0finder(mapMatrix, rows):
     print("You've opened: format_map_0finder(mapMatrix, rows)")
     for y in range(rows):
         for x in range(len(mapMatrix[y])):
-            #print("Sza")
             if mapMatrix[y][x] == '0':
-                #print("Szia! Itt miert nincs semmi?")
                 mapMatrix[y][x] = ' '
     return mapMatrix
 
@@ -89,9 +73,14 @@ def openTroll():
         i = 0
         for line in mazeFileTroll:
             mapKacsa[i] = list(line)
-            #print(list(line))
             i += 1
-        print_map2(mapKacsa, rows)
+        
+        basic_dictonary = {
+            'positionStartYX' : [5,3], #TODO
+            'positionFinal' :[34,45],
+            'map' : mapKacsa,
+        }
+        return basic_dictonary
 
 
 
@@ -103,13 +92,17 @@ def openTest():
         i = 0
         for line in mazeFileLvl_test:
             mapKacsa[i] = list(line)
-            #print(list(line))
             i += 1
-        #print_map2(mapKacsa, rows)
         format_map_excel(mapKacsa,rows)
-        #print_map2(mapKacsa, rows)
         format_map_0finder(mapKacsa,rows)
-        #print_map2(mapKacsa, rows)
+
+        basic_dictonary = {
+            'positionStartYX' : [5,3], #TODO
+            'positionFinal' :[34,45],
+            'map' : mapKacsa,
+        }
+        return basic_dictonary
+        
         
 
 
@@ -123,7 +116,13 @@ def open1():
             mapKacsa[i] = list(line)
             #print(list(line))
             i += 1
-        #print_map2(mapKacsa,rows)
+
+        basic_dictonary = {
+            'positionStartYX' : [5,3], #TODO
+            'positionFinal' :[34,45],
+            'map' : mapKacsa,
+        }
+        return basic_dictonary
 
 ######################################################################
 
@@ -138,8 +137,13 @@ def open_hexa():
             mapKacsa[i] = list(line)
             #print(list(line))
             i += 1
-        print_map2(mapKacsa, rows)
-
+        
+        basic_dictonary = {
+            'positionStartYX' : [5,3], #TODO
+            'positionFinal' :[34,45],
+            'map' : mapKacsa,
+        }
+        return basic_dictonary
 
 ######################################################################
 
@@ -154,7 +158,13 @@ def open_bunny():
             mapKacsa[i] = list(line)
             #print(list(line))
             i += 1
-        print_map2(mapKacsa, rows)
+        
+        basic_dictonary = {
+            'positionStartYX' : [5,3], #TODO
+            'positionFinal' :[34,45],
+            'map' : mapKacsa,
+        }
+        return basic_dictonary
 
 
 
@@ -166,15 +176,19 @@ def open_screenFinal():
         i = 0
         for line in fileScreenFinal:
             mapKacsa[i] = list(line)
-            #print(list(line))
             i += 1
-        print_map2(mapKacsa, rows)
+        
+        basic_dictonary = {
+            'positionStartYX' : [5,3], #TODO
+            'positionFinal' :[34,45],
+            'map' : mapKacsa,
+        }
+        return basic_dictonary
 
-
-
-#openTroll()
-#openTest()
-#open1()
-#open_hexa()
-#open_bunny()
-open_screenFinal()
+def simoMosogassEl():
+    mapTroll = openTroll()
+    mapTest = openTest()
+    map1 = open1()
+    mapHexa = open_hexa()
+    mapBunny = open_bunny()
+    mapFinal = open_screenFinal()
