@@ -78,7 +78,7 @@ def openTroll():
         basic_dictonary = {
             'positionStartYX' : [5,3], #TODO
             'positionFinal' :[34,45],
-            'map' : mapKacsa,
+            'map': mapKacsa,
         }
         return basic_dictonary
 
@@ -88,22 +88,23 @@ def openTest():
     with open('mazeFileLvl_test.txt', 'r' ) as mazeFileLvl_test:
         columns = 10
         rows = 10
-        mapKacsa = buildEmptyMap(columns,rows)
+        mapKacsa = buildEmptyMap(columns, rows)
         i = 0
         for line in mazeFileLvl_test:
             mapKacsa[i] = list(line)
             i += 1
         format_map_excel(mapKacsa,rows)
         format_map_0finder(mapKacsa,rows)
+        return mapKacsa
 
+'''
         basic_dictonary = {
             'positionStartYX' : [5,3], #TODO
             'positionFinal' :[34,45],
             'map' : mapKacsa,
         }
         return basic_dictonary
-        
-        
+'''        
 
 
 def open1():
@@ -185,6 +186,7 @@ def open_screenFinal():
         }
         return basic_dictonary
 
+
 def simoMosogassEl():
     mapTroll = openTroll()
     mapTest = openTest()
@@ -192,3 +194,6 @@ def simoMosogassEl():
     mapHexa = open_hexa()
     mapBunny = open_bunny()
     mapFinal = open_screenFinal()
+
+
+simoMosogassEl()

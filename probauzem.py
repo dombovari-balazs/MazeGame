@@ -1,9 +1,9 @@
-# bocsi, de nem futtathato, csak ASCII karakterekkel
 import os
 import keyboard
 import time
 import labirynthMaker
 
+'''
 level_test = [
     "XXXXXXXXXX",
     "XP    I  X",
@@ -16,6 +16,7 @@ level_test = [
     "XI     X X",
     "XXXXXXXXFX",
 ]
+'''
 
 
 def print_map(mapMatrix):
@@ -23,6 +24,7 @@ def print_map(mapMatrix):
         print(line)
 
 
+'''
 def load_mapFile():
     pass
 
@@ -44,6 +46,7 @@ def buildGameMap(mapKacsa):
         print(line)
 
     return mapKacsa
+'''
 
 
 def movement(map, i, j):
@@ -59,7 +62,7 @@ def movement(map, i, j):
                     map[i][j] = '|'
                 map[i-1][j] = 'P'
                 i -= 1
-                print_map(map)simoMosogassEl() from
+                print_map(map)
             elif map[i-1][j] == 'I':
                 os.system('clear')
                 map[i][j] = '|'
@@ -89,12 +92,12 @@ def movement(map, i, j):
                 map[i+1][j] = 'P'
                 i += 1
                 print_map(map)
-            elif map[i+1][j] ==mapCica
-                os.system('cleamapCica
-                map[i][j] = '|'mapCica
+            elif map[i+1][j] == 'I':
+                os.system('clear')
+                map[i][j] = '|'
                 map[i+1][j] = 'Þ'
                 i += 1
-           asic_dict     print_map(map)
+                print_map(map)
             elif map[i+1][j] == 'F':
                 os.system('clear')
                 tema = False
@@ -112,7 +115,7 @@ def movement(map, i, j):
             if map[i][j-1] == ' ':
                 os.system('clear')
                 if map[i][j] == 'Þ':
-                    map[i][j] = 'O'mapCica
+                    map[i][j] = 'O'
                 else:
                     map[i][j] = '-'
                 map[i][j-1] = 'P'
@@ -153,7 +156,7 @@ def movement(map, i, j):
                 map[i][j+1] = 'Þ'
                 j += 1
                 print_map(map)
-            elif map[i][j+1] == 'F':mapCica
+            elif map[i][j+1] == 'F':
                 os.system('clear')
                 tema = False
             elif map[i][j+1] == '-' or '|':
@@ -167,19 +170,24 @@ def movement(map, i, j):
             else:
                 continue
         if keyboard.is_pressed('p'):
-                tema = False
+            tema = False
 
 
 def start_timeCounting():
     pass
 
+
 def message_welcome():
     pass
+
+
 def message_endGame():
     pass
 
+
 def catch_flag():
     pass
+
 
 def change_map():
     pass
@@ -188,32 +196,100 @@ def change_map():
 def check_movement():
     pass
 
+
 def movement_toWall():
     pass
 
 
 def movement_toFlag():
     pass
+
+
 def movement_toEmpty():
     pass
 
 
+def displaying(sec):
+    start = time.time()
+    time.clock()
+    elapsed = 0
+    while elapsed < sec:
+        elapsed = time.time() - start
+        time.sleep(1)
+    timing = False
+
+
 def main():
-        game_end = False
-        while game_end is False:
-                playing = True
-                while playing is True:
-                        palya = input('Válassz pályát 1-től 5-ig!\n')
-                        if palya == 1:
-                                in_maze = True
-                                while in_maze is True:
-                                        mapCica = open1()
-                                        movement(mapCica['map'], 1, 1)
-                                        in_maze = False
-                                print_map(mapFinal)
-                        elif palya == 2:
-                                in_maze = True
-                                while in_maze is True:
-                                        movement(mapCica, 1, 1)
-                                        in_maze = False
-                                print_map(mapFinal)
+    playing = True
+    while playing is True:
+        menu = input('Válassz pályát!\n1: Teszt\n2: Open\n3: Trollface\n4: Hexa\n5: Bunny\n6: Quit\n')
+        if menu == '1':
+            in_maze = True
+            while in_maze is True:
+                mapCica = labirynthMaker.openTest
+                labirynthMaker.print_map2(mapCica, 10)
+                movement(mapCica['map'], 1, 1)
+                in_maze = False
+            timing = True
+            while timing is True:
+                mapFinal = labirynthMaker.open_screenFinal
+                print_map(mapFinal)
+                displaying(10)
+            continue
+        elif menu == '2':
+            in_maze = True
+            while in_maze is True:
+                mapCica = labirynthMaker.open1
+                print_map(mapCica)
+                movement(mapCica['map'], 1, 1)
+                in_maze = False
+            timing = True
+            while timing is True:
+                mapFinal = labirynthMaker.open_screenFinal
+                print_map(mapFinal)
+                displaying(10)
+            continue
+        elif menu == '3':
+            in_maze = True
+            while in_maze is True:
+                mapCica = labirynthMaker.openTroll
+                print_map(mapCica)
+                movement(mapCica['map'], 1, 1)
+                in_maze = False
+            timing = True
+            while timing is True:
+                mapFinal = labirynthMaker.open_screenFinal
+                print_map(mapFinal)
+                displaying(10)
+            continue
+        elif menu == '4':
+            in_maze = True
+            while in_maze is True:
+                mapCica = labirynthMaker.open_hexa
+                print_map(mapCica)
+                movement(mapCica['map'], 1, 1)
+                in_maze = False
+            timing = True
+            while timing is True:
+                mapFinal = labirynthMaker.open_screenFinal
+                print_map(mapFinal)
+                displaying(10)
+            continue
+        elif menu == '5':
+            in_maze = True
+            while in_maze is True:
+                mapCica = labirynthMaker.open_bunny
+                print_map(mapCica)
+                movement(mapCica['map'], 1, 1)
+                in_maze = False
+            timing = True
+            while timing is True:
+                mapFinal = labirynthMaker.open_screenFinal
+                print_map(mapFinal)
+                displaying(10)
+            continue
+        elif menu == '6':
+            playing = False
+
+
+main()
